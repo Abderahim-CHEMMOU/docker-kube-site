@@ -37,17 +37,17 @@ Commandes de Démarrage
 
 Assurez-vous d'être dans le répertoire contenant le fichier docker-compose.yml. Exécutez la commande suivante pour démarrer les services :
 
-bash```
-docker-compose up -d
+```bash
+docker-compose up --build -d
 ```
 
-Cette commande démarre les services db, backend et frontend en arrière-plan.
+Cette commande démarre les services db, backend et frontend en arrière-plan et reconstruit les images.
+
 2. Déploiement des Pods et Services Kubernetes
 
 Appliquez les fichiers de configuration Kubernetes dans votre cluster. Exécutez les commandes suivantes :
 
-bash```
-
+```bash
 kubectl apply -f backend-configmap.yaml
 kubectl apply -f back-pod.yaml
 kubectl apply -f db-pod.yml
