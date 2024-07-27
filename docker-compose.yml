@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: todolist
+    volumes:
+      - db-data:/var/lib/postgresql/data  
+    ports:
+      - "5432:5432"
+    networks:
+      - mynetwork
+
+  backend:
+    build: ./backend
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://postgres:password@db:5432/todolist
+      FRONTEND_URL: http://localhost:3000
+    volumes:
+      - backend-logs:/var/log/backend
+    ports:
+      - "5000:5000"
+    networks:
+      - mynetwork
+
+  frontend:
+    build: ./frontend
+    environment:
+      REACT_APP_BACKEND_URL: http://localhost:5000
+    depends_on:
+      - backend
+    volumes:
+      - frontend-logs:/var/log/frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - mynetwork
+
+volumes:
+  db-data: 
+  backend-logs:
+  frontend-logs:
+
+networks:
+  mynetwork:
+    driver: bridge

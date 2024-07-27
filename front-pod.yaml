@@ -1,0 +1,30 @@
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: front-pod
+#   labels:
+#     app: front
+# spec:
+#   containers:
+#   - name: front
+#     image: chemmou26/monfront:latest
+#     ports:
+#     - containerPort: 3000
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: front-pod
+  labels:
+    app: front
+spec:
+  containers:
+  - name: front
+    image: chemmou26/monfront:latest
+    ports:
+    - containerPort: 3000
+    envFrom:
+    - configMapRef:
+        name: frontend-config
+

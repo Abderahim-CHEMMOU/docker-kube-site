@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+data:
+  DATABASE_URL: "postgres://postgres:password@db-service:5432/todolist"
+  FRONTEND_URL: "http://192.168.49.2:32000"

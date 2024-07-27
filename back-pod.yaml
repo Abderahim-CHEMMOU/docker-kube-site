@@ -1,0 +1,33 @@
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: back-pod
+#   labels:
+#     app: back
+# spec:
+#   containers:
+#   - name: back
+#     image: chemmou26/monback:latest
+#     ports:
+#     - containerPort: 5000
+#     env:
+#     - name: DATABASE_URL
+#       value: "postgres://postgres:password@db-service:5432/todolist"
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: back-pod
+  labels:
+    app: back
+spec:
+  containers:
+  - name: back
+    image: chemmou26/monback:latest
+    ports:
+    - containerPort: 5000
+    envFrom:
+    - configMapRef:
+        name: backend-config
+

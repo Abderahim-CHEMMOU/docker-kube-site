@@ -1,0 +1,26 @@
+{
+    "name": "todo-frontend",
+    "version": "1.0.0",
+    "dependencies": {
+        "@emotion/react": "^11.13.0",
+        "@emotion/styled": "^11.13.0",
+        "@mui/icons-material": "^5.16.5",
+        "@mui/material": "^5.16.5",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-scripts": "4.0.3"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "devDependencies": {
+        "@wojtekmaj/enzyme-adapter-react-17": "^0.8.0",
+        "enzyme": "^3.11.0",
+        "enzyme-to-json": "^3.6.2",
+        "jest": "^26.6.0",
+        "supertest": "^7.0.0"
+    }
+}
